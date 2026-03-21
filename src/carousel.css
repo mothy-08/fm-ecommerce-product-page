@@ -1,0 +1,41 @@
+.image-carousel {
+  display: flex;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  anchor-name: --image-carousel;
+}
+
+.image-carousel::scroll-button(*) {
+  position: fixed;
+  position-anchor: --image-carousel;
+  align-self: anchor-center;
+
+  width: 40px;
+  height: 40px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 9px 14px;
+
+  cursor: pointer;
+}
+
+.image-carousel::scroll-button(*):disabled {
+  opacity: 0.75;
+}
+
+.image-carousel::scroll-button(left) {
+  left: 16px;
+  content: "" / "Previous";
+  background-image: url(./assets/icons/icon-previous.svg);
+}
+
+.image-carousel::scroll-button(right) {
+  right: 16px;
+  content: "" / "Next";
+  background-image: url(./assets/icons/icon-next.svg);
+}

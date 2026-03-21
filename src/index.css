@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Palette */
+  --color-orange-400: oklch(72.8% 0.1847 50.12);
+  --color-orange-50: oklch(95.69% 0.0262 58.29);
+  --color-blue-950: oklch(24.26% 0.0105 260.69);
+  --color-blue-600: oklch(54.29% 0.0225 260.15);
+  --color-blue-300: oklch(79.42% 0.0182 264.46);
+  --color-blue-50: oklch(97.98% 0.0067 277.16);
+
+  --spacing-fluid-avatar: clamp(24px, 16.5714px + 2.3214vw, 50px);
+  --spacing-fluid-header: clamp(16px, 7.4286px + 2.6786vw, 46px);
+  --spacing-fluid-header-padding: clamp(1.5rem, -1rem + 12.5vw, 10.25rem);
+
+  --spacing-fluid-header-width: calc(
+    100% - var(--spacing-fluid-header-padding) * 2
+  );
+
+  --text-fluid-heading: clamp(1.875rem, 1.5009rem + 1.5962vw, 2.9375rem);
+
+  /* Font Family */
+  --default-font-family: "Kumbh Sans";
+  --default-font-variation-settings: "YOPQ" 300;
+}
+
+@layer components {
+  .qty-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border-radius: 10px;
+    background-color: var(--color-blue-50);
+  }
+
+  .primary-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-weight: 700;
+    padding: 16px 20px;
+    border-radius: 10px;
+    background-color: var(--color-orange-400);
+  }
+}
