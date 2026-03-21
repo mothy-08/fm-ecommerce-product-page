@@ -25,6 +25,14 @@
   --default-font-variation-settings: "YOPQ" 300;
 }
 
+button {
+  cursor: pointer;
+}
+
+img {
+  pointer-events: none;
+}
+
 @layer components {
   .qty-wrapper {
     display: flex;

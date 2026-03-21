@@ -5,8 +5,14 @@ import MinusSign from "../assets/icons/icon-minus.svg";
 import PlusSign from "../assets/icons/icon-plus.svg";
 import { ImageCarousel } from "./ImageCarousel";
 import { ProductThumbnails } from "./ProductThumbnails";
+import type { CartItem } from "../App";
+import Thumbnail1 from "../assets/images/image-product-1-thumbnail.jpg";
 
-export function ProductCard() {
+interface Props {
+  onAddToCart: (item: CartItem) => void;
+}
+
+export function ProductCard({ onAddToCart }: Props) {
   const isDesktop = useMediaQuery({ query: "(min-width: 48rem)" });
   const [qty, setQty] = useState(0);
 
@@ -18,8 +24,20 @@ export function ProductCard() {
     if (qty > 0) setQty(qty - 1);
   }
 
+  function handleAddToCart() {
+    if (qty === 0) return;
+
+    onAddToCart({
+      src: Thumbnail1,
+      name: "Fall Limited Edition Snickers",
+      price: 125,
+      qty,
+    });
+    setQty(0);
+  }
+
   return (
-    <article className="md:w-fluid-header-width mx-auto max-w-278.5 md:grid md:grid-cols-2 md:place-items-center">
+    <article className="md:w-fluid-header-width mx-auto max-w-278.5 md:grid md:grid-cols-2 md:place-items-center md:gap-x-30">
       {isDesktop ? <ProductThumbnails /> : <ImageCarousel />}
       <div></div>
 
@@ -80,7 +98,7 @@ export function ProductCard() {
             </button>
           </div>
 
-          <button className="primary-btn">
+          <button onClick={handleAddToCart} className="primary-btn">
             <img src={CartIcon} alt="" width="22" height="20" />
             Add to Cart
           </button>
