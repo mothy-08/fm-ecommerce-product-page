@@ -10,6 +10,7 @@
   --color-blue-300: oklch(79.42% 0.0182 264.46);
   --color-blue-50: oklch(97.98% 0.0067 277.16);
 
+  /* Fluid spacing */
   --spacing-fluid-avatar: clamp(24px, 16.5714px + 2.3214vw, 50px);
   --spacing-fluid-header: clamp(16px, 7.4286px + 2.6786vw, 46px);
   --spacing-fluid-header-padding: clamp(1.5rem, -1rem + 12.5vw, 10.25rem);
